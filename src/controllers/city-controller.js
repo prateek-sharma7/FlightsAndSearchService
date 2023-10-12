@@ -44,8 +44,8 @@ const destroy = async (req, res) => {
 //GET -> /city/:id
 const get = async (req, res) => {
   try {
-    const response = await cityService.createCity(req.params.id);
-    return res.status(201).json({
+    const response = await cityService.getCity(req.params.id);
+    return res.status(200).json({
       data: response,
       success: true,
       message: "Successfully fetched a city",
@@ -56,7 +56,7 @@ const get = async (req, res) => {
     return res.status(500).json({
       data: {},
       success: false,
-      message: "Not able to fetch a city",
+      message: "Not able to get the city",
       err: error,
     });
   }
